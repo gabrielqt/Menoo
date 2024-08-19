@@ -43,6 +43,16 @@ class Order(models.Model):
     )
     customer_phone_number = models.CharField(validators=[phone_regex], max_length=11)
     
+    status_choices = {
+        'Aguardando Atendimento':'Aguardando Atendimento',
+        'Em Preparo':'Em Preparo',
+        'Entregue':'Entregue',
+        'Pago':'Pago'
+                      }
+    
+    status = models.CharField(max_length=22, default='Aguardando Atendimento', 
+                              choices=status_choices)
+    
     class Meta:
         ordering = ['order_date']
     

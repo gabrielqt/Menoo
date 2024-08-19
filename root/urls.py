@@ -23,6 +23,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin-api/', include('rest_framework.urls')),
     path('menu/', include('menoo.urls')),
     path('', RedirectView.as_view(url='/menu/')),
     path('authentication/', include('django.contrib.auth.urls')),
