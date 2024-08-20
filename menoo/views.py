@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse    
 from .models import *
 from .serializers import OrderSerializer
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
 
 
 class OrdersListAPIView(ListAPIView):
@@ -39,4 +39,7 @@ class OrdersRetrieveAPIView(RetrieveAPIView):
         return self.queryset.get(id=self.kwargs.get('id'))
     
     
-        
+class OrderPostAPIView(CreateAPIView):
+    
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer

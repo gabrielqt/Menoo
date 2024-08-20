@@ -9,8 +9,11 @@ class FoodSerialiazer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     
-    foods = FoodSerialiazer(many=True)
-    
+    foods = serializers.PrimaryKeyRelatedField(
+        many=True,
+        queryset=Food.objects.all()
+    )
+
     class Meta:
         model = Order
         fields = [
@@ -23,4 +26,9 @@ class OrderSerializer(serializers.ModelSerializer):
             'customer_name',
             'customer_phone_number'
         ]
-    
+        
+        
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        ret['foods'] = FoodSerialiazer(instance.foods.all(), many=True).data
+        return ret
