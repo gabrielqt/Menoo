@@ -20,7 +20,7 @@ class Food(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(_('name'), max_length=80)
     description = models.TextField(_('Description'))
-    price = models.FloatField(_('Float'), validators=[MinValueValidator(0.0)])
+    price = models.FloatField(_('Price'), validators=[MinValueValidator(0.0)])
     
     class Meta:
         
@@ -53,8 +53,14 @@ class Order(models.Model):
     status = models.CharField(max_length=22, default='Aguardando Atendimento', 
                               choices=status_choices)
     
+    @property
+    def preco_total(self):        
+        return sum(food.price for food in self.foods.all())
+            
+        
+    
     class Meta:
         ordering = ['order_date']
     
     def __str__(self):
-        return self.id
+        return 'Pedido: ' + str(self.id)
