@@ -12,8 +12,11 @@ sideButton.onclick = (event) => {
 }
 
 window.addEventListener('click', (event) => {
-    // Verifica se o clique foi fora do menu e do botão
-    if (!sideMenu.contains(event.target) && !sideButton.contains(event.target)) {
-        sideMenu.classList.remove('active-side');
+    if (!sideMenu.contains(event.target) && !sideButton.contains(event.target) && sideMenu.classList.contains('active-side')) {
+        sideMenu.classList.remove('active-side')
+        sideMenu.classList.add('deactive-side')
+        setTimeout(()=>{
+            sideMenu.classList.remove('deactive-side')
+        },300)
     }
 });
