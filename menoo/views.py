@@ -5,6 +5,21 @@ from .serializers import OrderSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
 
 
+
+def menu(request):
+    
+    category = Category.objects.all()
+    foods = Food.objects.all()
+    
+    context = {'categories':category, 'foods':foods}
+
+    return render(request,'base.html',context=context)
+
+
+
+
+
+'''   API    '''
 class OrdersListAPIView(ListAPIView):
     
     queryset = Order.objects.all()

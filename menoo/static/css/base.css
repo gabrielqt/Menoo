@@ -1,0 +1,91 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "New Amsterdam", sans-serif;
+    background-color: #877f87;
+    width: 100vw;
+    height: 100vh;
+}
+
+header{
+    background-color: #000000;
+    padding: 0.9rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.side-button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    transition: 0.5s ease;
+}
+
+.side-button:active{
+    transform: translateX(100%);
+
+}
+
+.title{
+    color: #bb7320;
+    font-size: 1.8rem;
+}
+
+
+.side-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 55vw;
+    background-color: #dbc8c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.side-menu{
+    animation: pulling 0.3s ease;
+}
+
+@keyframes pulling {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translate(0%);
+    }
+}
+
+.active-side{
+    display: flex;
+}
+
+#logo{
+    width: 75%;
+    position: relative;
+    bottom: 30vh;
+    border-radius: 50%;
+}
+
+.name{
+    position: relative;
+    font-size: 2.3rem;
+    bottom: 25vh;
+}
+
+.social{
+    position: relative;
+    bottom: 22vh;
+    font-size: 1.3rem;
+}

@@ -122,9 +122,11 @@ USE_TZ = True
 STATIC_URL = 'assets/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'menoo' + 'static'),
+]
 
-
-MEDIA_URL = '/media/'
+MEDIA_URL = 'menu/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_URL = 'login'
@@ -143,9 +145,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.UserRateThrottle'
+        'rest_framework.throttling.AnonRateThrottle'
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'user': '100/hour'
-        },
+        'anon': '3/minute'
+    }
 }

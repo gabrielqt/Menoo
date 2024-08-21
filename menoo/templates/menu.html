@@ -1,0 +1,8 @@
+{% regroup foods by category as food_list %}
+
+{% for food in food_list%}
+    {{food.grouper}}
+    {% for food in food.list %}
+        {{food}}
+    {% endfor %}
+{% endfor %}
