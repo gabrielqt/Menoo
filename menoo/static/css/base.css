@@ -1,5 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
+:root{
+    --main-color: #bb7320; 
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -36,7 +40,7 @@ header{
 }
 
 .title{
-    color: #bb7320;
+    color: var(--main-color);
     font-size: 1.8rem;
 }
 
@@ -162,7 +166,15 @@ header{
 
 @media (min-width: 1000px) {
     #logo{
-        margin-top: 5rem;
-        max-width: 45%;
+        margin-top: 10rem;
+        max-width: 30%;
+    }
+
+    .name{
+        font-size: 4rem;
+    }
+
+    .social{
+        font-size: 2rem;
     }
   }

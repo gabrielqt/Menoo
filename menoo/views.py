@@ -6,14 +6,14 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
 
 
 
-def menu(request):
+def menu(request, number_table):
     
     category = Category.objects.all()
     foods = Food.objects.all()
     
     context = {'categories':category, 'foods':foods}
 
-    return render(request,'base.html',context=context)
+    return render(request,'menu.html',context=context)
 
 
 
