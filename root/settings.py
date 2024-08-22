@@ -123,7 +123,7 @@ STATIC_URL = 'assets/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'menoo' + 'static'),
+    os.path.join(BASE_DIR, 'menoo', 'static'),
 ]
 
 MEDIA_URL = 'menu/media/'

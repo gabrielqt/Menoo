@@ -13,12 +13,15 @@
 body{
     font-family: "New Amsterdam", sans-serif;
     background-color: #877f87;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 header{
+    z-index: 25;
+    position: fixed;
     background-color: #000000;
+    height: 6vh;
     width: 100vw;
     padding: 0.9rem;
     display: flex;
@@ -46,8 +49,8 @@ header{
 
 
 .side-menu{
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 10;
     left: 0;
     height: 100vh;
     width: 55vw;
@@ -58,6 +61,7 @@ header{
     flex-direction: column;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    z-index: 30;
 }
 
 .active-side {
@@ -110,6 +114,10 @@ header{
 }
 
 .slide-categories{
+    position: fixed;
+    top: 6vh;
+    width: 100%;
+    z-index: 25;
     background: aliceblue;
     display: flex;
     justify-content: center;

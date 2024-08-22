@@ -26,10 +26,18 @@
         {% regroup foods by category as food_list %}
 
         {% for food in food_list%}
-            <h2 class="category">{{food.grouper}}</h2>
+            <h2 class="category" id="{{food.grouper}}">{{food.grouper}}</h2>
+            <div class="food-list">
             {% for food in food.list %}
-                {{food}}
+                <div class="food-item">
+                    <img src="{{food.image.url}}">
+                    <div class="food-details">
+                        <h3 class="food-name">{{food.name}}</h3>
+                        <p>{{food.description}}</p>
+                    </div>
+                </div>
             {% endfor %}
+            </div>
         {% endfor %}
     </div>
 
