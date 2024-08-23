@@ -28,9 +28,10 @@ if (now.getTime() > maxTime || now.getTime() < minTime) {
 // // // // // // // // // // // // // // // // // // // 
 
 
-
+let btnAdd = document.querySelector('.btn_add');
 let foodsOnTheCart = []
 const modalDiv = document.querySelector('.modal-container')
+const cart = document.querySelector('.cart')
 
 window.onclick = (event)=>{
     if(event.target.closest('.close-modal')){
@@ -38,20 +39,25 @@ window.onclick = (event)=>{
     }
 }
 
-function active_modal(){
-    modalDiv.style = "display:flex;"
+function active_modal(div){
+    div.style = "display:flex;"
 }
 
-function modal(img,name,description){
+function countCart(id){
+    
+}
+
+function modal(img,name,description,idFood){
     let modalTitle = document.querySelector('.modal-title');
     let modalLogo = document.querySelector('.logo-modal');
     let modalDesc = document.querySelector('.modal-desc');
 
     modalTitle.innerHTML = name
+    btnAdd.value = idFood
     modalLogo.src = img
     modalDesc.innerHTML = description
 
-    active_modal()
+    active_modal(modalDiv)
 
 }
 
@@ -61,33 +67,29 @@ foods.forEach(food =>{
     food.addEventListener('click', (event)=>{
         
         let imgSrc = food.querySelector('.food-image').src;
-        let foodName = food.querySelector('.food-name').textContent;
+        let foodName = food.querySelector('.food-name')
+        let idFood = foodName.id
+        foodName = foodName.textContent
         let foodDescription = food.querySelector('.food-description').textContent;
 
-        modal(imgSrc,foodName,foodDescription)
+        modal(imgSrc,foodName,foodDescription,idFood)
 
     })
 })
 
 
+btnAdd.onclick = ()=>{
+    foodsOnTheCart.push(btnAdd.value)
+    active_modal(cart)
+    console.log(foodsOnTheCart)
+}
 
-/* <img src="{{food.image.url}}">
-<div class="food-details">
-    <h3 class="food-name">{{food.name}}</h3>
-    <p>{{food.description|truncatechars:100}}</p> */
+if (foodsOnTheCart.length > 0){
+    console.log('oi')
+}
+
+// // // // // // // // // // // // // // 
 
 
-// products.forEach(product => {
-//     product.addEventListener('click', (event)=>{
-//         if (!event.target.classList.contains('buy') && !event.target.closest('.buy')) {
 
-//             // acessando os elementos de dentro de cada product
-//             const imgSrc = product.querySelector('img').src;
-//             const coffeeName = product.querySelector('.coffe-name').textContent;
-//             const description = product.querySelector('.description').textContent
 
-//             modal(imgSrc, coffeeName, description)
-
-//         }
-//     })
-// })
