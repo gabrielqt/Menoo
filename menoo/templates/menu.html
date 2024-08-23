@@ -1,44 +1,57 @@
 {% extends "base.html" %}
 {% load static %}
 
-{%block extra_styles%}<link rel="stylesheet" href="{% static "css/menu.css" %}"> {%endblock%}
+{%block extra_styles%}
+<link rel="stylesheet" href="{% static "css/menu.css" %}">
+<link rel="stylesheet" href="{% static "css/modal.css" %}">{%endblock%}
 
 {%block title%}Menu{%endblock%}
 
 {% block extra_scripts %}
-    <script src="{% static "js/time.js" %}"></script>
-    <script src="{% static "js/post.js" %}"></script>
+<script src="{% static "js/time.js" %}"></script>
+<script src="{% static "js/post.js" %}"></script>
 {% endblock %}
 
 {% block content %}
+<br>
+<div class="main-container">
+    <div class="start">
+        <img src="/menu/media/logo.avif">
+        <h1>Restaurant</h1>
+    </div>
+    <section class="info-box">
+        <p><i class="bi bi-geo-fill"></i>&nbspCentro, Rua Bonitinha, 150</p>
+        <p><i class="bi bi-clock-fill"></i></i>&nbspEntrega: 20-30 minutos</p>
+        <p id="time" class="open">Aberto</p>
+    </section>
     <br>
-    <div class="main-container">
-        <div class="start">
-            <img src="/menu/media/logo.avif">
-            <h1>Restaurant</h1>
-        </div>
-        <section class="info-box">
-            <p><i class="bi bi-geo-fill"></i>&nbspCentro, Rua Bonitinha, 150</p>
-            <p><i class="bi bi-clock-fill"></i></i>&nbspEntrega: 20-30 minutos</p>
-            <p id="time" class="open">Aberto</p>
-        </section>
-        <br>
-        {% regroup foods by category as food_list %}
+    {% regroup foods by category as food_list %}
 
-        {% for food in food_list%}
-            <h2 class="category" id="{{food.grouper}}">{{food.grouper}}</h2>
-            <div class="food-list">
-            {% for food in food.list %}
-                <div class="food-item">
-                    <img src="{{food.image.url}}">
-                    <div class="food-details">
-                        <h3 class="food-name">{{food.name}}</h3>
-                        <p>{{food.description}}</p>
-                    </div>
-                </div>
-            {% endfor %}
+    {% for food in food_list%}
+    <h2 class="category" id="{{food.grouper}}">{{food.grouper}}</h2>
+    <div class="food-list">
+        {% for food in food.list %}
+        <div class="food-item">
+            <img class="food-image" src="{{food.image.url}}">
+            <div class="food-details">
+                <h3 class="food-name">{{food.name}}</h3>
+                <p class="food-description">{{food.description|truncatechars:100}}</p>
             </div>
+        </div>
         {% endfor %}
     </div>
+    {% endfor %}
+</div>
+<br>
+
+<div class="modal-container">
+    <div class="modal-content">
+        <i class="bi bi-x-lg close-modal"></i>
+        <img class="logo-modal" src="/menu/media/caipira.jpg">
+        <h2 class="modal-title">Caipirinha</h2>
+        <p class="modal-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+        <button class="btn_add">Adicionar ao Carrinho</button>
+    </div>
+</div>
 
 {% endblock %}

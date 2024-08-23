@@ -54,6 +54,8 @@ class Order(models.Model):
     status = models.CharField(max_length=22, default='Aguardando Atendimento', 
                               choices=status_choices)
     
+    table = models.IntegerField(_('Número da mesa'), default=None, blank=True, null=True)
+    
     @property
     def preco_total(self):        
         return sum(food.price for food in self.foods.all())
