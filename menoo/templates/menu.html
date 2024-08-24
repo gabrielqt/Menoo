@@ -8,8 +8,8 @@
 {%block title%}Menu{%endblock%}
 
 {% block extra_scripts %}
-<script src="{% static "js/time.js" %}"></script>
-<script src="{% static "js/post.js" %}"></script>
+<script src="{% static "js/script.js" %}"></script>
+<script src="{% static "js/buy.js" %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -51,12 +51,20 @@
         <h2 class="modal-title">Caipirinha</h2>
         <p class="modal-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
         <button class="btn_add">Adicionar ao Carrinho</button>
-        <p>No carrinho:&nbsp<span class=count></span></p>
+        <p>No carrinho:&nbsp<span class="count"></span></p>
     </div>
 </div>
 
 <div class="cart">
     <i class="bi bi-cart4"></i>
+</div>
+
+<div class="cart-modal">
+    <div class="cart-content">
+        <ul class="products-list">
+            <li id="ID">{{}}</li>
+        </ul>
+    </div>  
 </div>
 
 {% endblock %}

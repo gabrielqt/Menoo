@@ -117,3 +117,23 @@
     }
 }
 
+
+.cart-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 90;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-content{
+    width: 90vw;
+    height: 90vh;
+    background-color: rgb(131, 120, 120);
+    border: 2px solid var(--main-color);
+}

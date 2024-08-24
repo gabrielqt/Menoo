@@ -30,6 +30,7 @@ if (now.getTime() > maxTime || now.getTime() < minTime) {
 
 let btnAdd = document.querySelector('.btn_add');
 let foodsOnTheCart = []
+let count = document.querySelector('.count')
 const modalDiv = document.querySelector('.modal-container')
 const cart = document.querySelector('.cart')
 
@@ -43,8 +44,18 @@ function active_modal(div){
     div.style = "display:flex;"
 }
 
+function counter(value){
+    count.innerHTML = value
+}
+
 function countCart(id){
-    
+    let count = foodsOnTheCart.reduce((accumulator, currentValue) =>{
+        if (currentValue == id){
+            accumulator += 1
+        }
+        return accumulator
+    },0)
+    return count
 }
 
 function modal(img,name,description,idFood){
@@ -56,6 +67,7 @@ function modal(img,name,description,idFood){
     btnAdd.value = idFood
     modalLogo.src = img
     modalDesc.innerHTML = description
+    count.innerHTML = countCart(idFood)
 
     active_modal(modalDiv)
 
@@ -81,15 +93,22 @@ foods.forEach(food =>{
 btnAdd.onclick = ()=>{
     foodsOnTheCart.push(btnAdd.value)
     active_modal(cart)
-    console.log(foodsOnTheCart)
+    let count_ = countCart(btnAdd.value) //armazenei o ID no value do botão
+    counter(count_)
 }
 
-if (foodsOnTheCart.length > 0){
-    console.log('oi')
-}
 
 // // // // // // // // // // // // // // 
+foodsOnTheCart = [1,2,3,4]
 
+function productsFunc(foods){
+    for (item in foods){
+        
+    }
+}
 
+let productsList = document.querySelector('.products-list')
 
+let products = productsFunc(foodsOnTheCart)
 
+productsList.innerHTML = products
