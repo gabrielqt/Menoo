@@ -30,6 +30,7 @@ if (now.getTime() > maxTime || now.getTime() < minTime) {
 
 let btnAdd = document.querySelector('.btn_add');
 let foodsOnTheCart = []
+let foodsOnTheCartObj = {}
 let count = document.querySelector('.count')
 const modalDiv = document.querySelector('.modal-container')
 const cart = document.querySelector('.cart')
@@ -65,6 +66,7 @@ function modal(img,name,description,idFood){
 
     modalTitle.innerHTML = name
     btnAdd.value = idFood
+    btnAdd.name = name
     modalLogo.src = img
     modalDesc.innerHTML = description
     count.innerHTML = countCart(idFood)
@@ -91,24 +93,55 @@ foods.forEach(food =>{
 
 
 btnAdd.onclick = ()=>{
+    // I stored the idFood on btn.value and nameFood on btn.name
     foodsOnTheCart.push(btnAdd.value)
+    foodsOnTheCartObj[btnAdd.value] = btnAdd.name
     active_modal(cart)
-    let count_ = countCart(btnAdd.value) //armazenei o ID no value do botão
+    let count_ = countCart(btnAdd.value) 
     counter(count_)
 }
 
 
 // // // // // // // // // // // // // // 
-foodsOnTheCart = [1,2,3,4]
+
+foodsOnTheCart = [1,7,7,7,1]
+foodsOnTheCartObj = {
+    "1": "Mousse de Maracuja",
+    "7": "czxczxc"
+}
 
 function productsFunc(foods){
-    for (item in foods){
-        
+    foods.sort((a,b) => a-b);
+    listHtml = '';
+    for (item of foods){
+        listHtml +=         `<li>
+        ${foodsOnTheCartObj[item]} <button class="pop" value="${item}"><i class="bi bi-trash"></i></button>
+        </li>`
     }
+    return listHtml
 }
 
 let productsList = document.querySelector('.products-list')
-
 let products = productsFunc(foodsOnTheCart)
-
 productsList.innerHTML = products
+
+
+
+function assignListeners() {
+    popBtns = document.querySelectorAll('.pop'); 
+    popBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            let index_pop = foodsOnTheCart.indexOf(Number(btn.value))
+            
+            if (index_pop !== -1) { 
+                foodsOnTheCart.splice(index_pop, 1)
+                productsList.innerHTML = productsFunc(foodsOnTheCart)
+                assignListeners()
+            } else {
+                console.log("Item não encontrado no array.")
+            }
+        })
+    })
+}
+
+assignListeners()

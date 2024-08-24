@@ -50,7 +50,7 @@
         <img class="logo-modal" src="/menu/media/caipira.jpg">
         <h2 class="modal-title">Caipirinha</h2>
         <p class="modal-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-        <button class="btn_add">Adicionar ao Carrinho</button>
+        <button class="btn_add" name="empty">Adicionar ao Carrinho</button>
         <p>No carrinho:&nbsp<span class="count"></span></p>
     </div>
 </div>
@@ -61,9 +61,14 @@
 
 <div class="cart-modal">
     <div class="cart-content">
+        <i class="bi bi-cart3"></i>
+        <h1>Seu carrinho</h1>
         <ul class="products-list">
-            <li id="ID">{{}}</li>
+            <button class="pop" value="1"><i class="bi bi-trash"></i></button>
         </ul>
+        <div class="divBtn">
+            <button class="next"><i class="bi bi-chevron-double-right"></i></button>
+        </div>
     </div>  
 </div>
 
