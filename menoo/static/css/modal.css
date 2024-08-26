@@ -126,7 +126,7 @@
     height: 100vh;
     z-index: 90;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 90;
@@ -197,4 +197,22 @@
     border: none;
     letter-spacing: 2px;
     border-radius: 50%;
+}
+
+.pop:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.next:hover{
+    cursor: pointer;
+}
+
+.close-cart{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    font-size: 2.9rem;
+    color: #fff;
+    cursor: pointer;
 }

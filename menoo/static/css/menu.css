@@ -84,7 +84,7 @@
 .food-list img{
     width: 20%;
     padding: 2px;
-    
+    transition: 0.2s ease-in-out;
 }
 
 .food-item{
@@ -92,7 +92,14 @@
     border: 1px black solid;
     width: 100%;
     transition: 0.2s ease;
+    cursor: pointer;
+    transform: 0.5s ease-in-out;
+}
 
+.food-item:hover{
+    img{
+        transform: scale(1.1);
+    }
 }
 
 .food-name{

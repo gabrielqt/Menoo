@@ -24,7 +24,8 @@ class OrderSerializer(serializers.ModelSerializer):
             'order_date',
             'note',
             'customer_name',
-            'customer_phone_number'
+            'customer_phone_number',
+            'table'
         ]
         
         

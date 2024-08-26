@@ -94,21 +94,18 @@ foods.forEach(food =>{
 
 btnAdd.onclick = ()=>{
     // I stored the idFood on btn.value and nameFood on btn.name
-    foodsOnTheCart.push(btnAdd.value)
+    foodsOnTheCart.push(Number(btnAdd.value))
     foodsOnTheCartObj[btnAdd.value] = btnAdd.name
     active_modal(cart)
     let count_ = countCart(btnAdd.value) 
     counter(count_)
+    productsList.innerHTML = productsFunc(foodsOnTheCart)
+    assignListeners()
 }
 
 
 // // // // // // // // // // // // // // 
 
-foodsOnTheCart = [1,7,7,7,1]
-foodsOnTheCartObj = {
-    "1": "Mousse de Maracuja",
-    "7": "czxczxc"
-}
 
 function productsFunc(foods){
     foods.sort((a,b) => a-b);
@@ -122,8 +119,7 @@ function productsFunc(foods){
 }
 
 let productsList = document.querySelector('.products-list')
-let products = productsFunc(foodsOnTheCart)
-productsList.innerHTML = products
+
 
 
 
@@ -145,3 +141,16 @@ function assignListeners() {
 }
 
 assignListeners()
+
+
+const cartModal = document.querySelector('.cart-modal')
+const cartBtn = document.querySelector('.bi-cart4')
+const closeCart = document.querySelector('.close-cart')
+
+cartBtn.addEventListener('click',()=>{
+    cartModal.style = 'display:flex;'
+})
+
+closeCart.addEventListener('click', ()=>{
+    cartModal.style = 'display:none;'
+})
