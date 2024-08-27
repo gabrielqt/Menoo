@@ -86,7 +86,6 @@ foods.forEach(food =>{
         let foodName = food.querySelector('.food-name')
         let idFood = foodName.id
         let price = food.querySelector('.price').textContent;
-        console.log(price)
         foodName = foodName.textContent
         let foodDescription = food.querySelector('.food-description').textContent;
 
@@ -169,4 +168,15 @@ cartBtn.addEventListener('click',()=>{
 
 closeCart.addEventListener('click', ()=>{
     cartModal.style = 'display:none;'
+    startCart.classList.remove('deactive-div')
+})
+
+const nextBtn = document.querySelector('.next')
+const startCart = document.querySelector('.start-cart')
+
+nextBtn.addEventListener('click',()=>{
+    startCart.classList.add('deactive-div')
+    setTimeout(()=>{
+        
+    }, 1000)
 })

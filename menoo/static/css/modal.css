@@ -133,6 +133,7 @@
     justify-content: center;
     align-items: center;
     z-index: 90;
+    overflow-x: hidden;
 }
 
 .cart-content{
@@ -231,4 +232,77 @@
     border: none;
     color: rgb(72, 230, 109);
     font-size: 2rem;
+}
+
+.start-cart{
+    transition: transform 1s ease;
+}
+
+.deactive-div{
+    transform: translate(-200%);
+}
+
+.mid-cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    margin: 3rem;
+}
+
+.mid-cart label{
+    text-shadow: 2px 2px 2px black;
+    font-size: 2rem;
+}
+
+.mid-cart input{
+    width: 100%;
+    height: 3rem;
+    border: 2px solid black;
+    box-shadow: 4px 4px 2px 0px var(--main-color);
+    padding: 1rem;
+    transition: 0.5s ease;
+}
+
+.mid-cart input:focus{
+    outline: none;
+    box-shadow: 8px 8px 10px 0px var(--main-color);
+    transform: scale(1.05);
+}
+
+
+#note{
+    height: 3.6rem;
+    width: 100%;
+    border: 2px solid black;
+    box-shadow: 4px 4px 2px 0px var(--main-color);
+    padding: 1rem;
+    transition: 0.5s ease;
+}
+
+#note:focus{
+    outline: none;
+    box-shadow: 8px 8px 10px 0px var(--main-color);
+    transform: scale(1.05);
+}
+
+#finish{
+    background-color:#0db129;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    width: 30vw;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: "New Amsterdam", sans-serif;
+    float: right;
+    margin-right: 2rem;
+    transition: 0.5s linear;
+}
+
+#finish:active{
+    background-color: black;
 }

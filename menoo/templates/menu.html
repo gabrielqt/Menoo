@@ -63,10 +63,11 @@
     <i class="bi bi-cart4"></i>
 </div>
 
-<div class="cart-modal">
+<div class="cart-modal" style="display:flex;">
     <div class="cart-content">
         <i class="bi bi-x close-cart"></i>
-        <div class="start-cart">
+
+        <div class="start-cart" style="display:none;">
             <div style="text-align:center">
                 <i class="bi bi-cart3"></i>
             </div>
@@ -79,9 +80,30 @@
                 <button class="next"><i class="bi bi-chevron-double-right"></i></button>
             </div>
         </div>
-        <div class="mid-cart">
 
+        <div class="mid-cart">
+            <div>
+                <div class="form">
+                    <label>Digite seu nome completo</label>
+                    <br>
+                    <input id="name" required type="text" placeholder="João Fulano">
+                </div>
+
+                <div class="form">
+                    <label>Digite seu número de telefone</label>
+                    <br>
+                    <input id="number" required type="text" placeholder="46999999999">
+                </div>
+
+                <div class="form">
+                <label>Informe caso haja alguma observação</label>
+                <br>
+                <textarea rows="4" cols="50" placeholder="Não quero cebola xD" id="note"></textarea>
+                </div>
+                <button id="finish"><i class="bi bi-check-circle-fill"></i></button>
+            </div>
         </div>
+
     </div>
 </div>
 
