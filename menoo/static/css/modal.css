@@ -180,6 +180,12 @@
     font-size: 2rem;
 }
 
+.price-cart{
+    color: rgb(72, 230, 109);
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+    font-family: "New Amsterdam", sans-serif;
+}
 
 .divBtn{
     width: 100%;
@@ -220,3 +226,9 @@
     cursor: pointer;
 }
 
+#total-price{
+    text-align: center;
+    border: none;
+    color: rgb(72, 230, 109);
+    font-size: 2rem;
+}

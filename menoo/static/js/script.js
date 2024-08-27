@@ -63,7 +63,7 @@ function modal(img,name,description,idFood,price){
     let modalTitle = document.querySelector('.modal-title');
     let modalLogo = document.querySelector('.logo-modal');
     let modalDesc = document.querySelector('.modal-desc');
-    let modalPrice = document.querySelector('.modal-price')
+    let modalPrice = document.querySelector('.modal-price');
 
     modalTitle.innerHTML = name
     btnAdd.value = idFood
@@ -97,9 +97,11 @@ foods.forEach(food =>{
 
 
 btnAdd.onclick = ()=>{
+    let modalPrice = document.querySelector('.modal-price').textContent;
+
     // I stored the idFood on btn.value and nameFood on btn.name
     foodsOnTheCart.push(Number(btnAdd.value))
-    foodsOnTheCartObj[btnAdd.value] = btnAdd.name
+    foodsOnTheCartObj[btnAdd.value] = [btnAdd.name,modalPrice]
     active_modal(cart)
     let count_ = countCart(btnAdd.value) 
     counter(count_)
@@ -113,12 +115,22 @@ btnAdd.onclick = ()=>{
 
 function productsFunc(foods){
     foods.sort((a,b) => a-b);
+    let regex = /[0-9]+(\.[0-9]+)/;
+    let sum = 0
     listHtml = '';
+    
     for (item of foods){
         listHtml +=         `<li>
-        ${foodsOnTheCartObj[item]} <button class="pop" value="${item}"><i class="bi bi-trash"></i></button>
+        ${foodsOnTheCartObj[item][0].slice(0,25)} <button class="pop" value="${item}"><span class="price-cart">${foodsOnTheCartObj[item][1]}</span><i class="bi bi-trash"></i></button>
         </li>`
+
+        let string = foodsOnTheCartObj[item][1]
+        let result = Number(string.match(regex)[0])
+        sum += result
     }
+
+
+    listHtml += `<li id="total-price">Total R$${sum}</li>`
     return listHtml
 }
 

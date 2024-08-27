@@ -59,8 +59,6 @@ class Order(models.Model):
     @property
     def preco_total(self):        
         return sum(food.price for food in self.foods.all())
-            
-        
     
     class Meta:
         ordering = ['order_date']
