@@ -73,7 +73,6 @@
 }
 
 .food-list{
-    background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,18 +87,19 @@
 }
 
 .food-item{
+    background-color: aliceblue;
     display: flex;
     border: 1px black solid;
     width: 100%;
     transition: 0.2s ease;
     cursor: pointer;
     transform: 0.5s ease-in-out;
+    margin: 0.2rem;
 }
 
 .food-item:hover{
-    img{
-        transform: scale(1.1);
-    }
+    box-shadow: 5px 5px 10px 5px var(--main-color);
+    width: 80%;
 }
 
 .food-name{
