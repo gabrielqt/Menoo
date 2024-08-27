@@ -91,6 +91,9 @@
     cursor: pointer;
 }
 
+.modal-price{
+    color:var(--main-color);
+}
 
 .cart{
     display: none;
@@ -216,3 +219,4 @@
     color: #fff;
     cursor: pointer;
 }
+

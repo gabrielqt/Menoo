@@ -19,7 +19,7 @@ class Food(models.Model):
     
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(_('name'), max_length=80)
-    description = models.TextField(_('Description'))
+    description = models.TextField(_('Description'), max_length=250)
     price = models.FloatField(_('Price'), validators=[MinValueValidator(0.0)])
     image = models.ImageField(_('Image Food'),upload_to='foods/', default='logo.avif')
     

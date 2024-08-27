@@ -110,6 +110,7 @@
 
 .food-details{
     padding: 2px;
+    width: 100%;
 }
 
 .food-details p{
@@ -118,6 +119,12 @@
 
 .food-item:active{
     opacity: 0.5;
+}
+
+.price{
+    color: #037c20;
+    float: right;
+    padding: 0.8rem;
 }
 
 @media (min-width: 1000px){
@@ -130,4 +137,6 @@
     .food-details p{
         font-size: 2rem;
     }
+
 }
+

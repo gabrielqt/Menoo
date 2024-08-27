@@ -34,8 +34,9 @@
         <div class="food-item">
             <img class="food-image" src="{{food.image.url}}">
             <div class="food-details">
+                <p class="price" id="{{food.price}}" style="font-size:1.5rem;"><span>R$&nbsp</span>{{food.price}}</p>
                 <h3 class="food-name" id="{{food.id}}">{{food.name}}</h3>
-                <p class="food-description">{{food.description|truncatechars:100}}</p>
+                <p class="food-description">{{food.description|truncatechars:80}}</p>
             </div>
         </div>
         {% endfor %}
@@ -49,7 +50,10 @@
         <i class="bi bi-x-lg close-modal"></i>
         <img class="logo-modal" src="/menu/media/caipira.jpg">
         <h2 class="modal-title">Caipirinha</h2>
-        <p class="modal-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+        <p class="modal-price" style="font-size:2rem;">R$ 90</p>
+        <p class="modal-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
         <button class="btn_add" name="empty">Adicionar ao Carrinho</button>
         <p>No carrinho:&nbsp<span class="count"></span></p>
     </div>
@@ -62,14 +66,21 @@
 <div class="cart-modal">
     <div class="cart-content">
         <i class="bi bi-x close-cart"></i>
-        <i class="bi bi-cart3"></i>
-        <h1>Seu carrinho</h1>
-        <ul class="products-list">
-        </ul>
-        <div class="divBtn">
-            <button class="next"><i class="bi bi-chevron-double-right"></i></button>
+        <div class="start-cart">
+            <div style="text-align:center">
+                <i class="bi bi-cart3"></i>
+            </div>
+            <h1>Seu carrinho</h1>
+            <ul class="products-list">
+            </ul>
+            <div class="divBtn">
+                <button class="next"><i class="bi bi-chevron-double-right"></i></button>
+            </div>
         </div>
-    </div>  
+        <div class="mid-cart">
+
+        </div>
+    </div>
 </div>
 
 {% endblock %}

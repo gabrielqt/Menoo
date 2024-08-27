@@ -59,16 +59,18 @@ function countCart(id){
     return count
 }
 
-function modal(img,name,description,idFood){
+function modal(img,name,description,idFood,price){
     let modalTitle = document.querySelector('.modal-title');
     let modalLogo = document.querySelector('.logo-modal');
     let modalDesc = document.querySelector('.modal-desc');
+    let modalPrice = document.querySelector('.modal-price')
 
     modalTitle.innerHTML = name
     btnAdd.value = idFood
     btnAdd.name = name
     modalLogo.src = img
     modalDesc.innerHTML = description
+    modalPrice.innerHTML = price
     count.innerHTML = countCart(idFood)
 
     active_modal(modalDiv)
@@ -83,10 +85,12 @@ foods.forEach(food =>{
         let imgSrc = food.querySelector('.food-image').src;
         let foodName = food.querySelector('.food-name')
         let idFood = foodName.id
+        let price = food.querySelector('.price').textContent;
+        console.log(price)
         foodName = foodName.textContent
         let foodDescription = food.querySelector('.food-description').textContent;
 
-        modal(imgSrc,foodName,foodDescription,idFood)
+        modal(imgSrc,foodName,foodDescription,idFood, price)
 
     })
 })
