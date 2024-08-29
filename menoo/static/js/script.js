@@ -159,7 +159,7 @@ assignListeners()
 
 
 const cartModal = document.querySelector('.cart-modal')
-const cartBtn = document.querySelector('.bi-cart4')
+const cartBtn = document.querySelector('.bi-basket2')
 const closeCart = document.querySelector('.close-cart')
 
 cartBtn.addEventListener('click',()=>{
@@ -168,15 +168,57 @@ cartBtn.addEventListener('click',()=>{
 
 closeCart.addEventListener('click', ()=>{
     cartModal.style = 'display:none;'
+    midCart.style = "display:none;"
+    startCart.style = "display:block;"
     startCart.classList.remove('deactive-div')
+    midCart.classList.remove('deactive-midcart')
 })
 
 const nextBtn = document.querySelector('.next')
 const startCart = document.querySelector('.start-cart')
+const midCart = document.querySelector('.mid-cart')
+const endCart = document.querySelector('.end-cart')
 
 nextBtn.addEventListener('click',()=>{
     startCart.classList.add('deactive-div')
     setTimeout(()=>{
-        
-    }, 1000)
+        startCart.style="display:none;"
+        midCart.style = "display:flex;"
+    }, 500)
+})
+
+
+// // // // // // // //
+
+const buttonFinish = document.getElementById('finish')
+
+buttonFinish.addEventListener('click', ()=>{
+    const name = document.getElementById('name').value.trim();
+    const number = document.getElementById('number').value.trim();
+    const note = document.getElementById('note').value.trim();
+    const errors = document.getElementById('errors-list');
+    errors.innerHTML = ''
+    let error = ''
+
+    if (name.length < 3){
+                            
+        errors.innerHTML += `<li class="error">O nome deve ter no minímo 3 caracteres<i class="bi bi-exclamation-lg"></i></li>`;
+        error = true
+    }
+
+    const phoneRegex = /^\d{10,11}$/;
+    if (!phoneRegex.test(number)) {
+        errors.innerHTML += `<li class="error">Número inválido<i class="bi bi-exclamation-lg"></i></li>`
+        error = true
+    }
+
+    if (!error){
+        errors.innerHTML = ''
+        midCart.classList.add('deactive-midcart')
+        setTimeout(()=>{
+            midCart.style = "display:none;"
+            endCart.style = "display:flex;"
+        }, 500)
+    }
+
 })

@@ -60,19 +60,19 @@
 </div>
 
 <div class="cart">
-    <i class="bi bi-cart4"></i>
+    <i class="bi bi-basket2"></i>
 </div>
 
-<div class="cart-modal" style="display:flex;">
+<div class="cart-modal">
     <div class="cart-content">
         <i class="bi bi-x close-cart"></i>
 
-        <div class="start-cart" style="display:none;">
+        <div class="start-cart">
             <div style="text-align:center">
-                <i class="bi bi-cart3"></i>
+                <i class="bi bi-basket2-fill"></i>
             </div>
             <div style="text-align:center">
-                <h1>Seu carrinho</h1>
+                <h1>Sua cestinha</h1>
             </div>
             <ul class="products-list">
             </ul>
@@ -84,26 +84,36 @@
         <div class="mid-cart">
             <div>
                 <div class="form">
-                    <label>Digite seu nome completo</label>
+                    <div class="errors">
+                        <ul id="errors-list">
+                        </ul>
+                    </div>
+                    <label>Seu Nome&nbsp<i class="bi bi-person-walking"></i></label>
                     <br>
                     <input id="name" required type="text" placeholder="João Fulano">
                 </div>
 
                 <div class="form">
-                    <label>Digite seu número de telefone</label>
+                    <label>Seu Número&nbsp<i class="bi bi-telephone-fill"></i></label>
                     <br>
                     <input id="number" required type="text" placeholder="46999999999">
                 </div>
 
                 <div class="form">
-                <label>Informe caso haja alguma observação</label>
+                <label>Observação &nbsp<i class="bi bi-clipboard2-minus-fill"></i></label>
                 <br>
-                <textarea rows="4" cols="50" placeholder="Não quero cebola xD" id="note"></textarea>
+                <textarea rows="4" cols="50" placeholder="(opcional) Não quero cebola xD" id="note"></textarea>
                 </div>
                 <button id="finish"><i class="bi bi-check-circle-fill"></i></button>
             </div>
         </div>
 
+        <div class="end-cart" style="display:none;">
+            <i class="bi bi-hypnotize loading"></i>
+            <br>
+            <p class="end-text">O seu pedido foi entregue, aguarde ser recebido.</p>
+            <p class="end-text" style="color:#f0bf64">Não feche esta janela!</p>
+        </div>
     </div>
 </div>
 

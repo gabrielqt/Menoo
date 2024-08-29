@@ -167,6 +167,7 @@
     border: none;
 }
 
+
 .cart-content li{
     border: 1px solid black;
     padding: 0.5rem;
@@ -177,8 +178,8 @@
     margin: 0.6rem;
 }
 
-.bi-cart3{
-    font-size: 2rem;
+.bi-basket2-fill{
+    font-size: 3rem;
 }
 
 .price-cart{
@@ -243,9 +244,20 @@
 }
 
 .mid-cart{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.8s ease;
+    animation: midcart-anim 1s ease;
+}
+
+@keyframes midcart-anim {
+    0%{
+        transform: translate(200%);
+    }
+    100%{
+        transform: translate(0%);
+    }
 }
 
 .form{
@@ -291,6 +303,7 @@
 #finish{
     background-color:#0db129;
     padding: 10px;
+    height: 7vh;
     font-size: 1.5rem;
     border-radius: 5px;
     width: 30vw;
@@ -305,4 +318,50 @@
 
 #finish:active{
     background-color: black;
+}
+
+#finish:hover{
+    cursor: pointer;
+}
+
+.error{
+    border-radius: 10px;
+    background-color: #dd4040;
+    text-align: center;
+}
+
+.error i{
+    color: black;
+}
+
+.deactive-midcart{
+    transform: translateY(-300%);
+    display: none;
+}
+
+.loading{
+    font-size: 2rem;
+    animation: loading 6s infinite linear;
+}
+
+@keyframes loading{
+    to{transform: rotateZ(360deg);}
+}
+
+.end-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+
+@media (min-width:1000px){
+    .deactive-div{
+        transform: translate(-700%);
+    }
 }
