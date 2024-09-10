@@ -1,0 +1,142 @@
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.info-box{
+    max-width: 90%;
+    background-color: aliceblue;
+    line-height: 1.5rem;
+    padding: 2rem;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: #928484;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.info-box i{
+    font-size: 1rem;
+    color: #000000;
+}
+
+
+
+#time::before{
+    font-family:'Bootstrap-icons';
+    content: "\F102";
+    margin-right: 4px;
+}
+
+#time{
+    font-size: 1.5rem;
+}
+
+.closed{
+    color: #ad1818;
+}
+
+.open{
+    color: #037c20;
+}
+
+.start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.start img{
+    margin-top: 10vh;
+    border-radius: 50%;
+    width: 50%;
+}
+
+.start h1{
+    background-color:#000000;
+    letter-spacing: 5px;
+    color: var(--main-color);
+    margin: 10px;
+    padding: 5px;
+    text-shadow: 1px 1px 1px white;
+}
+
+.category{
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.food-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.food-list img{
+    width: 20%;
+    padding: 2px;
+    transition: 0.2s ease-in-out;
+}
+
+.food-item{
+    background-color: aliceblue;
+    display: flex;
+    border: 1px black solid;
+    width: 100%;
+    transition: 0.2s ease;
+    cursor: pointer;
+    transform: 0.5s ease-in-out;
+    margin: 0.2rem;
+}
+
+.food-item:hover{
+    box-shadow: 5px 5px 10px 5px var(--main-color);
+    width: 80%;
+}
+
+.food-name{
+    font-size: 1.4rem;
+    color: var(--main-color);
+    letter-spacing: 1.5px;
+}
+
+.food-details{
+    padding: 2px;
+    width: 100%;
+}
+
+.food-details p{
+    font-size: 1.1rem;
+}
+
+.food-item:active{
+    opacity: 0.5;
+}
+
+.price{
+    color: #037c20;
+    float: right;
+    padding: 0.8rem;
+}
+
+@media (min-width: 1000px){
+    .food-list{
+        width: 50%;
+    }
+    .food-name{
+        font-size: 3rem;
+    }
+    .food-details p{
+        font-size: 2rem;
+    }
+
+}
+

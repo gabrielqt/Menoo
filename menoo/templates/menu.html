@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block extra_styles%}
+<link rel="stylesheet" href="{% static "css/menu.css" %}">
+<link rel="stylesheet" href="{% static "css/modal.css" %}">{%endblock%}
+
+{%block title%}Menu{%endblock%}
+
+{% block extra_scripts %}
+<script src="{% static "js/script.js" %}"></script>
+<script src="{% static "js/buy.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="main-container">
+    <div class="start">
+        <img src="/menu/media/logo.avif">
+        <h1>Restaurant</h1>
+    </div>
+    <section class="info-box">
+        <p><i class="bi bi-geo-fill"></i>&nbspCentro, Rua Bonitinha, 150</p>
+        <p><i class="bi bi-clock-fill"></i></i>&nbspEntrega: 20-30 minutos</p>
+        <p id="time" class="open">Aberto</p>
+    </section>
+    <br>
+    {% regroup foods by category as food_list %}
+
+    {% for food in food_list%}
+    <h2 class="category" id="{{food.grouper}}">{{food.grouper}}</h2>
+    <div class="food-list">
+        {% for food in food.list %}
+        <div class="food-item">
+            <img class="food-image" src="{{food.image.url}}">
+            <div class="food-details">
+                <p class="price" id="{{food.price}}" style="font-size:1.5rem;"><span>R$&nbsp</span>{{food.price}}</p>
+                <h3 class="food-name" id="{{food.id}}">{{food.name}}</h3>
+                <p class="food-description">{{food.description|truncatechars:80}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+<br>
+
+<div class="modal-container">
+    <div class="modal-content">
+        <i class="bi bi-x-lg close-modal"></i>
+        <img class="logo-modal" src="/menu/media/caipira.jpg">
+        <h2 class="modal-title">Caipirinha</h2>
+        <p class="modal-price" style="font-size:2rem;">R$ 90</p>
+        <p class="modal-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+        <button class="btn_add" name="empty">Adicionar ao Carrinho</button>
+        <p>No carrinho:&nbsp<span class="count"></span></p>
+    </div>
+</div>
+
+<div class="cart">
+    <i class="bi bi-basket2"></i>
+</div>
+
+<div class="cart-modal">
+    <div class="cart-content">
+        <i class="bi bi-x close-cart"></i>
+
+        <div class="start-cart">
+            <div style="text-align:center">
+                <i class="bi bi-basket2-fill"></i>
+            </div>
+            <div style="text-align:center">
+                <h1>Sua cestinha</h1>
+            </div>
+            <ul class="products-list">
+            </ul>
+            <div class="divBtn">
+                <button class="next"><i class="bi bi-chevron-double-right"></i></button>
+            </div>
+        </div>
+
+        <div class="mid-cart">
+            <div>
+                <div class="form">
+                    <div class="errors">
+                        <ul id="errors-list">
+                        </ul>
+                    </div>
+                    <label>Seu Nome&nbsp<i class="bi bi-person-walking"></i></label>
+                    <br>
+                    <input id="name" required type="text" placeholder="João Fulano">
+                </div>
+
+                <div class="form">
+                    <label>Seu Número&nbsp<i class="bi bi-telephone-fill"></i></label>
+                    <br>
+                    <input id="number" required type="text" placeholder="46999999999">
+                </div>
+
+                <div class="form">
+                <label>Observação &nbsp<i class="bi bi-clipboard2-minus-fill"></i></label>
+                <br>
+                <textarea rows="4" cols="50" placeholder="(opcional) Não quero cebola xD" id="note"></textarea>
+                </div>
+                <button id="finish"><i class="bi bi-check-circle-fill"></i></button>
+            </div>
+        </div>
+
+        <div class="end-cart" style="display:none;">
+            <i class="bi bi-hypnotize loading"></i>
+            <br>
+            <p class="end-text">O seu pedido foi entregue, aguarde ser recebido.</p>
+            <p class="end-text" style="color:#f0bf64">Não feche esta janela!</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,9 +2,24 @@ from django.shortcuts import render
 from django.http import HttpResponse    
 from .models import *
 from .serializers import OrderSerializer
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
 
 
+
+def menu(request, number_table):
+    
+    category = Category.objects.all()
+    foods = Food.objects.all()
+    
+    context = {'categories':category, 'foods':foods}
+
+    return render(request,'menu.html',context=context)
+
+
+
+
+
+'''   API    '''
 class OrdersListAPIView(ListAPIView):
     
     queryset = Order.objects.all()
@@ -39,4 +54,7 @@ class OrdersRetrieveAPIView(RetrieveAPIView):
         return self.queryset.get(id=self.kwargs.get('id'))
     
     
-        
+class OrderPostAPIView(CreateAPIView):
+    
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
