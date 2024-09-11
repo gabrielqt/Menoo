@@ -1,0 +1,92 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root{
+    --main-color: #bb7320; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "New Amsterdam", sans-serif;
+    background-color: #877f87;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 6vh;
+    background-color: var(--main-color);
+    border-bottom: 3px black solid;
+}
+
+.navbar i{
+    font-size: 2rem;
+    padding: 20px;
+}
+
+.orders{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    padding: 50px;
+}
+
+
+.order-card{
+    width: 100%;
+    background-color: aliceblue;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    padding: 1.5rem;
+    border: 2px solid black;
+}
+
+.order-card:hover{
+    background-color: #c9c0c9;
+    cursor: pointer;
+}
+
+p {
+    margin-right: 1.5rem;
+}
+
+.order-id{
+    margin-right: 1rem;
+    border-right: 1px black solid;
+    padding-right: 15px;
+}
+
+.order-price{
+    color: green;
+}
+
+.visto{
+    background-color: rgba(101, 230, 129, 0.663);
+}
+
+.btn_page{
+    background-color: aliceblue;
+    padding: 0.3rem;
+    font-size: 1rem;
+    color: #000;
+    font-family: "New Amsterdam", sans-serif;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.btn_page:hover{
+    cursor: pointer;
+}
+
+.pagination{
+    font-size: 1.5rem;
+}

@@ -245,22 +245,28 @@ buttonFinish.addEventListener('click', ()=>{
 
         let url = 'http://127.0.0.1:8000/menu/api/order-create/'
 
+        const foodsNotDuplicated = [...new Set(foodsOnTheCart)]
+        const foodsInput = []
+
+        foodsNotDuplicated.forEach((item,index) => {
+            let quantity = countCart(item)
+            let objFood = {
+                "food": {"id": item},
+                "quantity" : quantity
+            }
+            foodsInput.push(objFood)
+        })
+
+        console.log(foodsInput)
+
         let data = {
-            "order_foods_input": [
-                {
-                    "food": {"id": 1},  
-                    "quantity": 2       
-                },
-                {
-                    "food": {"id": 2},  
-                    "quantity": 5       
-                }
-            ],
+            "order_foods_input":foodsInput,
             "note": note,
             "customer_name": name,
             "customer_phone_number": number,
             "table": number_table
         }
+        
         
           
         

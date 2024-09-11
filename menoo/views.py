@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse    
+from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 from .serializers import OrderSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
@@ -16,6 +18,12 @@ def menu(request, number_table):
     return render(request,'menu.html',context=context)
 
 
+class OrderList(LoginRequiredMixin, ListView):
+    
+    queryset = Order.objects.all().order_by('-order_date')
+    template_name = 'menu_orders.html'
+    context_object_name = 'orders'
+    paginate_by = 21
 
 
 

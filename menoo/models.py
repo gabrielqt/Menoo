@@ -49,13 +49,11 @@ class Order(models.Model):
     customer_phone_number = models.CharField(validators=[phone_regex], max_length=11)
     
     STATUS_CHOICES = [
-        ('Aguardando Atendimento', 'Aguardando Atendimento'),
-        ('Em Preparo', 'Em Preparo'),
-        ('Entregue', 'Entregue'),
-        ('Pago', 'Pago')
+        ('Aguardando','Aguardando'),
+        ('Visto','Visto')
     ]
     
-    status = models.CharField(max_length=22, default='Aguardando Atendimento', choices=STATUS_CHOICES)
+    status = models.CharField(max_length=22, default='Aguardando', choices=STATUS_CHOICES)
     table = models.IntegerField(_('Número da mesa'), default=None, blank=True, null=True)
 
     @property
