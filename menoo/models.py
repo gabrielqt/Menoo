@@ -41,7 +41,7 @@ class OrderFood(models.Model):
 class Order(models.Model):
     foods = models.ManyToManyField(Food, through='OrderFood')  # Usando o modelo intermediário.
     order_date = models.DateTimeField('Data-Hora do pedido', auto_now_add=True)
-    note = models.TextField(_('Observation'), blank=True, null=True)
+    note = models.TextField(_('Observation'), blank=True, default="Nenhuma observação")
     customer_name = models.CharField(_('Customer Name'), max_length=90)
     phone_regex = RegexValidator(
         regex=r'^\d{2}\d{9}$',

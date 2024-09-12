@@ -154,19 +154,35 @@ p {
     color: #0a62e7;
 }
 
-.finish-order{
-    position: relative;
-    top: 15vh;
-    background-color: #c21010;
+.btn{
     font-family: "New Amsterdam", sans-serif;
     color: #fff;
     border: none;
     padding: 1rem;
     font-size: 1.4rem;
     border-radius: 5px;
+    margin-top: 3rem;
+}
+
+.view-order{
+    background-color: #18800e;
+    margin-right: 2rem;
+}
+
+.view-order:hover{
+    background-color: #2cb220;
+    cursor: pointer;
+}
+
+.finish-order{
+    background-color: #c21010;
 }
 
 .finish-order:hover{
     cursor: pointer;
     background-color: #ea2b2b;
+}
+
+form{
+    display: inline-block;
 }

@@ -214,6 +214,8 @@ nextBtn.addEventListener('click',()=>{
 // // // // // // // //
 
 const buttonFinish = document.getElementById('finish')
+let finishText = document.getElementById('finish-order');
+
 
 buttonFinish.addEventListener('click', ()=>{
     const name = document.getElementById('name').value.trim();
@@ -241,6 +243,8 @@ buttonFinish.addEventListener('click', ()=>{
         setTimeout(()=>{
             midCart.style = "display:none;"
             endCart.style = "display:flex;"
+            closeCart.style = "display:none;"
+
         }, 500)
 
         let url = 'http://127.0.0.1:8000/menu/api/order-create/'
@@ -283,9 +287,8 @@ buttonFinish.addEventListener('click', ()=>{
         .then(result => {
             console.log('Sucesso:', result); 
             let id_order = result['id'];
-            let finishText = document.getElementById('finish-order');
             finishText.innerHTML = `O seu pedido <span class="id_order">#${id_order}</span> foi entregue, aguarde ser recebido.`
-
+            waitOrder(id_order)
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -293,3 +296,21 @@ buttonFinish.addEventListener('click', ()=>{
             }
 
 })
+
+async function callBackwait(id_order){
+    
+    let response = await fetch(`http://127.0.0.1:8000/menu/api/order-retrieve/${id_order}/`);
+    let data = await response.json();
+    if (data['status'] === 'Visto' ){
+      const finishIcon = document.getElementById('finish-icon');
+      finishIcon.classList.remove('loading'); finishIcon.classList.remove('bi-hypnotize')
+      finishIcon.classList.add('bi-emoji-heart-eyes')
+      finishText.innerHTML = "O seu pedido foi recebido!";
+    }
+}
+
+function waitOrder(id_order){
+
+    setInterval(callBackwait,10000,id_order);
+
+}

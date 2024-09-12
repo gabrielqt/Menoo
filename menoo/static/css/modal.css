@@ -365,3 +365,8 @@
         transform: translate(-700%);
     }
 }
+
+.bi-emoji-heart-eyes{
+    transition: 0.5s ease;
+    font-size: 3rem;
+}

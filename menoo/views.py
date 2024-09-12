@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse    
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from .models import *
 from .serializers import OrderSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
@@ -36,6 +38,22 @@ class OrderDetail(LoginRequiredMixin, DetailView):
         context["foods"] = OrderFood.objects.filter(order_id=self.object.id)
         return context
     
+@require_POST   
+def view_order(request,pk):
+    
+    obj = Order.objects.get(pk=pk)
+    obj.status = "Visto"
+    obj.save()
+    
+    return redirect(request.POST.get('current'))
+
+@require_POST
+def delete_order(request,pk):
+    
+    obj = Order.objects.get(pk=pk)
+    obj.delete()
+    return redirect('orders_menu')
+
 
 
 '''   API    '''
