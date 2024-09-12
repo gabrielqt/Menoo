@@ -143,3 +143,30 @@ p {
 .order div{
     border-right: 1px solid black;
 }
+
+.status-title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.status{
+    font-size: 1.5rem;
+    color: #0a62e7;
+}
+
+.finish-order{
+    position: relative;
+    top: 15vh;
+    background-color: #c21010;
+    font-family: "New Amsterdam", sans-serif;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 5px;
+}
+
+.finish-order:hover{
+    cursor: pointer;
+    background-color: #ea2b2b;
+}

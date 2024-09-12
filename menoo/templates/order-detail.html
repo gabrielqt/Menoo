@@ -80,11 +80,16 @@
             <br>
             <p class="price">Preço total: R${{order.preco_total}}</p>
         </div>
+
+        <div class="col-3" style="border:none;">
+            <p class="status-title">Status:</p>
+            <p class="status">{% if "Ag" in order.status %}<i class="bi bi-clock-history"></i>{% elif "Vi" in order.status%}<i class="bi bi-eye-fill"></i>{% endif %} {{order.status}}</p>
+            <br>
+            <button class="finish-order">Encerrar Pedido</button>
+        </div> 
     </section>
 
     <script src="{% static "js/phone.js"%}"></script>
-
-
 
 </body>
 
