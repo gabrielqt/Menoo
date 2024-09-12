@@ -282,6 +282,10 @@ buttonFinish.addEventListener('click', ()=>{
         .then(response => response.json())
         .then(result => {
             console.log('Sucesso:', result); 
+            let id_order = result['id'];
+            let finishText = document.getElementById('finish-order');
+            finishText.innerHTML = `O seu pedido <span class="id_order">#${id_order}</span> foi entregue, aguarde ser recebido.`
+
         })
         .catch(error => {
             console.error('Erro:', error);

@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, RegexValidator
+from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(_('name'), max_length=80)
@@ -61,6 +62,11 @@ class Order(models.Model):
         # Calcular o preço total considerando a quantidade de cada item.
         return sum(order_food.food.price * order_food.quantity for order_food in self.orderfood_set.all())
 
+
+    def get_absolute_url(self):
+        return reverse('order-detail', args=[str(self.id)])
+    
+    
     class Meta:
         ordering = ['order_date']
 

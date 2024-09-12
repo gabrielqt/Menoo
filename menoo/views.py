@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse    
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 from .serializers import OrderSerializer
@@ -24,7 +24,18 @@ class OrderList(LoginRequiredMixin, ListView):
     template_name = 'menu_orders.html'
     context_object_name = 'orders'
     paginate_by = 21
+    
+class OrderDetail(LoginRequiredMixin, DetailView):
+    
+    model = Order
+    template_name = 'order-detail.html'
+    context_object_name = 'order'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["foods"] = OrderFood.objects.filter(order_id=self.object.id)
+        return context
+    
 
 
 '''   API    '''
