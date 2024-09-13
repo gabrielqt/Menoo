@@ -203,6 +203,14 @@ const midCart = document.querySelector('.mid-cart')
 const endCart = document.querySelector('.end-cart')
 
 nextBtn.addEventListener('click',()=>{
+
+    if(foodsOnTheCart.length < 1){
+        productsList.innerHTML = `<li class="error">Seu carrinho está vazio</li>`
+        
+
+        return
+    }
+
     startCart.classList.add('deactive-div')
     setTimeout(()=>{
         startCart.style="display:none;"
