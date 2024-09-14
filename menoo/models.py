@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator, RegexValidator
 from django.urls import reverse
 
 class Category(models.Model):
-    name = models.CharField(_('name'), max_length=80)
+    name = models.CharField(_('name'), max_length=80, unique=True)
 
     class Meta:
         ordering = ['name']

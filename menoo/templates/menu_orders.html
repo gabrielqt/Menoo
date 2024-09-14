@@ -11,7 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar"><i class="bi bi-shop"></i></nav>
+    <nav class="navbar">
+        <a href="{% url "new_category" %}" class="add"><p>Nova Categoria</p><i class="bi bi-plus-circle"></i></a>
+        <a href="#" class="add"><p>Novo Alimento</p><i class="bi bi-plus-circle"></i></a>
+    </nav>
     <br>
     <h1 class="orders-title">PEDIDOS</h1>
 

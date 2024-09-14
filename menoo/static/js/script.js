@@ -239,7 +239,7 @@ buttonFinish.addEventListener('click', ()=>{
         error = true
     }
 
-    const phoneRegex = /^\d{10,11}$/;
+    const phoneRegex = /^\d{2}9\d{8}$/;
     if (!phoneRegex.test(number)) {
         errors.innerHTML += `<li class="error">Número inválido<i class="bi bi-exclamation-lg"></i></li>`
         error = true

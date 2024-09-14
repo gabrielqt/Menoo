@@ -7,18 +7,30 @@ from django.views.decorators.http import require_POST
 from .models import *
 from .serializers import OrderSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
-
+from .forms import *
 
 
 def menu(request, number_table):
     
     category = Category.objects.all()
-    foods = Food.objects.all()
+    foods = Food.objects.all().order_by('category')
     
     context = {'categories':category, 'foods':foods}
 
     return render(request,'menu.html',context=context)
 
+
+def create_category(request):
+    
+    if request.method == "POST":
+        form = NewCategory(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('orders_menu')
+    else:
+        form = NewCategory()
+        
+    return render(request, 'form.html', context={"form":form, "title":"Categoria"})
 
 class OrderList(LoginRequiredMixin, ListView):
     

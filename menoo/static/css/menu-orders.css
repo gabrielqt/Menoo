@@ -25,12 +25,9 @@ body{
     height: 6vh;
     background-color: var(--main-color);
     border-bottom: 3px black solid;
+    padding: 2rem;
 }
 
-.navbar i{
-    font-size: 2rem;
-    padding: 20px;
-}
 
 .orders{
     display: grid;
@@ -251,4 +248,15 @@ form{
 .modal-menu .bi{
     font-size: 3rem;
     color: #a70202;
+}
+
+.add{
+    text-decoration: none;
+    color: black;
+    font-size: 1.4rem;
+    margin-inline: 2rem;
+}
+
+.add i{
+    padding: 45px;
 }
