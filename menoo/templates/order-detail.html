@@ -89,14 +89,22 @@
                 <button type="submit" class="view-order btn">Marcar como Visto</button>
             </form>
             {% endif %}
-            <form method="post" action="{% url "delete-order" pk=order.pk %}">
-                {% csrf_token %}
-                <button class="finish-order btn">Encerrar Pedido</button>
-            </form>
+            <button class="finish-order btn">Encerrar Pedido</button>
         </div> 
     </section>
 
-    <script src="{% static "js/phone.js"%}"></script>
+    <div class="modal">
+        <h3>Tem certeza que deseja encerrar esse pedido?</h3>
+        <div>
+            <button class="not-finish btn">Não</button>
+        </div>
+        <form method="post" action="{% url "delete-order" pk=order.pk %}">
+            {% csrf_token %}
+            <button class="finish-order btn">Sim</button>
+        </form>
+    </div>
+
+    <script src="{% static "js/order-detail.js"%}"></script>
 
 </body>
 

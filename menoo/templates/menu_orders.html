@@ -49,5 +49,23 @@
         </div>
     </div>
 
+    {% if orders.count > 0%}
+    <button style="margin-left:2rem" class="finish-order btn"><i class="bi bi-trash"></i> Limpar Pedidos</button>
+    {% endif %}
+
+    <div class="modal-menu">
+        <i class="bi bi-exclamation-diamond-fill"></i>
+        <h3>Tem certeza que deseja <strong style="color:#a70202">excluir todos</strong> os pedidos?</h3>
+        <br>
+        <div>
+            <button style="margin-top:0rem;"class="not-finish btn">Não</button>
+            <form method="post" action="{% url "clean-orders" %}">
+                {% csrf_token %}
+                <button style="margin-top:0rem;display:inline-block;" class="finish-order btn">Sim</button>
+            </form>
+    </div>
+    </div>
+
+    <script src="{% static "js/menu-order.js" %}"></script>
 </body>
 </html>

@@ -34,9 +34,10 @@
 }
 
 .logo-modal{
-    width: 50%;
-    border-radius: 50%;
+    max-width: 50%;
+    max-height: 50%;
     margin: 0px auto;
+    border-radius: 20%;
 }
 
 

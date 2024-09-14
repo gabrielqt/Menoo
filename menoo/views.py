@@ -54,6 +54,13 @@ def delete_order(request,pk):
     obj.delete()
     return redirect('orders_menu')
 
+@require_POST
+def delete_all_orders(request):
+    
+    obj = Order.objects.all()
+    obj.delete()
+    return redirect('orders_menu')
+    
 
 
 '''   API    '''

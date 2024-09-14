@@ -101,6 +101,8 @@ p {
 /* ------------- ORDER-DETAIL ---------- */
 
 .order{
+    margin: 2rem;
+    border-radius: 5px;
     background-color: aliceblue;
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -185,4 +187,68 @@ p {
 
 form{
     display: inline-block;
+}
+
+/* ------  MODAL  -------- */
+
+.modal{
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform:translate(-50%,50%);
+    margin: auto;
+    width:30vw;
+    height: 20vh;
+    color: white;
+    display: none;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.modal h3{
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px black;
+    margin-top: 1rem;
+}
+
+.not-finish{
+    background-color:#18800e;
+    margin-right: 1rem;
+}
+
+.not-finish:hover{
+    background-color: #29a11f;
+    cursor: pointer;
+}
+
+/* MODAL MENU */
+
+.modal-menu{
+        background-color: rgba(0,0,0,0.9);
+        position: fixed;
+        top: 5%;
+        left: 50%;
+        transform:translate(-50%,50%);
+        margin: auto;
+        width:40vw;
+        height: 30vh;
+        color: white;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 10px;
+        flex-direction: column;
+    
+        & h3{
+            font-size: 2rem;    
+            text-align: center;
+        }
+}
+
+.modal-menu .bi{
+    font-size: 3rem;
+    color: #a70202;
 }
