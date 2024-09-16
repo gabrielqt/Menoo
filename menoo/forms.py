@@ -5,8 +5,16 @@ class NewCategory(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name']
-        
-        #VALIDAR TAMANHO DO ANAME
+
+    def clean(self):
+        cleaned_data = super().clean()
+        name = cleaned_data.get('name')
+
+        if name and len(name) < 5:
+            raise forms.ValidationError('O nome deve ter no mínimo 5 caracteres.')
+
+        return cleaned_data
+
         
 class NewFood(forms.ModelForm):
     class Meta:

@@ -19,7 +19,7 @@ def menu(request, number_table):
 
     return render(request,'menu.html',context=context)
 
-
+@login_required
 def create_category(request):
     
     if request.method == "POST":
@@ -31,6 +31,48 @@ def create_category(request):
         form = NewCategory()
         
     return render(request, 'form.html', context={"form":form, "title":"Categoria"})
+
+@login_required
+def create_food(request):
+    
+    if request.method == "POST":
+        form = NewFood(request.POST, request.FILES)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return redirect('orders_menu')
+        
+    form = NewFood()
+    return render(request, 'form.html', context={"form":form, "title":"Alimento"})
+        
+
+def delete_food(request):
+    
+    
+    categories = Category.objects.all()
+    foods = Food.objects.all()
+    
+    context = {"categories":categories, "foods":foods}
+    
+    if request.method == "POST":
+        categorie = request.POST.get('select-categories')
+        
+        if not categorie == "None" and categorie:
+            categorie_obj = Category.objects.get(pk=categorie)
+            categorie_obj.delete()  
+                    
+         
+        ########################
+        
+        food = request.POST.get('select-foods') 
+        if not food == "None" and food:
+            food_obj = Food.objects.get(pk=food)
+            food_obj.delete()
+        
+
+    
+    return render(request,'delete-form.html',context=context)
+
 
 class OrderList(LoginRequiredMixin, ListView):
     
@@ -49,6 +91,8 @@ class OrderDetail(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context["foods"] = OrderFood.objects.filter(order_id=self.object.id)
         return context
+    
+    
     
 @require_POST   
 def view_order(request,pk):

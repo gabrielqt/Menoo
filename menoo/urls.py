@@ -5,13 +5,15 @@ urlpatterns = [
     path('', menu, name='menu'),
     path('mesa/<int:number_table>', menu, name='menu'),
     path('pedidos/', OrderList.as_view(), name="orders_menu"),
-    path('pedido/<int:pk>/', OrderDetail.as_view(), name="order-detail")
+    path('pedido/<int:pk>/', OrderDetail.as_view(), name="order-detail"),
+    path('deletar/', delete_food, name='delete-food')
 ]
 
 ''' FORMS:  '''
 
 urlpatterns += [
-    path('nova_categoria/', create_category, name='new_category')
+    path('nova_categoria/', create_category, name='new_category'),
+    path('novo_alimento/', create_food, name="new_food")
 ]
 
 

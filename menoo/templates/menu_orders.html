@@ -13,7 +13,8 @@
 <body>
     <nav class="navbar">
         <a href="{% url "new_category" %}" class="add"><p>Nova Categoria</p><i class="bi bi-plus-circle"></i></a>
-        <a href="#" class="add"><p>Novo Alimento</p><i class="bi bi-plus-circle"></i></a>
+        <a href="{% url "new_food" %}" class="add"><p>Novo Alimento</p><i class="bi bi-plus-circle"></i></a>
+        <a href="{% url "delete-food" %}" class="add"><p>Deletar</p><i style="padding:17px;" class="bi bi-trash3-fill"></i></a>
     </nav>
     <br>
     <h1 class="orders-title">PEDIDOS</h1>

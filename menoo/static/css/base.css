@@ -35,6 +35,7 @@ header{
     font-size: 1.5rem;
     color: white;
     transition: 0.5s ease;
+    cursor: pointer;
 }
 
 .side-button:active{
